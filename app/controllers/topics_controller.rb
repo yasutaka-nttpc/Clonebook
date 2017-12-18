@@ -1,8 +1,5 @@
 class TopicsController < ApplicationController
- 
- 
-  #
-  #before_action :authenticate_user!
+  before_action :authenticate_user!
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
   
   def index
@@ -48,6 +45,11 @@ class TopicsController < ApplicationController
   def destroy
     @topic.destroy
     redirect_to topics_path, notice: "削除しました！"
+  end
+
+  def confirm
+    @topic = Topic.new(topics_params)
+    render :new if @topic.invalid?
   end
 
   private

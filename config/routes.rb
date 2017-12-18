@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
-  root 'top#index'
+  get 'notifications/index'
+
+  root 'topics#index'
 
   get 'notifications/index'
   get 'relationships/create'
   get 'relationships/destroy'
-  get 'top/index'
 
   devise_for :users, controllers: {
     registrations: "users/registrations",
     omniauth_callbacks: "users/omniauth_callbacks"
   }
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
 
   resources :topics do

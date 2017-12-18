@@ -44,6 +44,28 @@ group :development, :test do
   gem 'spring'
 end
 
+group :development do
+  gem 'letter_opener_web'
+  gem 'dotenv-rails'
+end
 
+group :development, :test do
+  gem 'pry-rails'
+  gem 'better_errors'
+end
 
 gem 'twitter-bootstrap-rails'
+
+gem 'devise'
+
+gem 'faker'
+
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+
+#image uploader
+gem 'carrierwave'
+gem 'mini_magick'
+
+gem 'pusher'

@@ -1,0 +1,23 @@
+<div class="container">
+<div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+  <h2>お知らせ</h2>
+  <ul>
+    <% @notifications.each do |notification| %>
+    <hr>
+      <li>
+        <% if (notification.read == false) %>
+          <span>未読</span>
+        <% end %>
+        <p>
+          <div class="profile-img">
+            <%= profile_img(notification.comment.user) %>
+          </div>
+            <%= notification.comment.user.try(:name) %>さんが
+          あなたのトピック（<%= link_to "#{notification.comment.topic.title}", topic_path(notification.comment.topic, notification_id: notification.id) %>）にコメントしました。
+        </p>
+        <p><%= notification.created_at %></p>
+      </li>
+    <% end %>
+  </ul>
+</div>
+</div>
