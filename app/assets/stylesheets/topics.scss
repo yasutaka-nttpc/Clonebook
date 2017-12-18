@@ -6,6 +6,11 @@
     padding: 20px;
     text-align: left;
     word-wrap: break-word;
+    background-color: #FFFFFF;    
+    .profile-img {
+      max-width: 64px;
+      max-height: 64px;
+    }
   }
 }
 input[type="submit"].btn-block{
@@ -125,4 +130,5 @@ html {
 
 body {
   text-align: center;
+  background-color: #f6f6f6;
 }

@@ -1,23 +1,29 @@
 <div class="container">
-<div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
-  <h1>Topic一覧</h1>
-    <%= link_to "作成", new_topic_path, class: 'btn btn-default' %>
-  <% @topics.each do |topic| %>
-  <div class="row">
-    <div class="profile-img">
-      <%= profile_img(User.find(topic.user_id)) %>
+  <div class="wrapper col-md-4 col-sm-2">
+    <div class="row">
+      <div class="profile-img"><%= profile_img(User.find(current_user.id)) %></div>
+      <p><%= link_to current_user.name, edit_user_registration_path %></p>
     </div>
-    <%= link_to topic_path(topic) do %>
-      <h4><strong><%= topic.title %></strong></h4>
-    <% end %>
-    <p><%= topic.content %></p>
-    <p><%= image_tag(topic.picture.url) %></p>
-    <%= User.find(topic.user_id).name %>
-    <% if current_user.id == topic.user.id %>
-      <%= link_to "編集", edit_topic_path(topic.id), class: 'btn btn-default btn-sm btn-success' %>
-      <%= link_to "削除", topic_path(topic.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>
+  </div>
+  <div class="wrapper col-md-8 col-sm-10">
+    <h1>Topic一覧</h1>
+      <%= link_to "作成", new_topic_path, class: 'btn btn-default' %>
+    <% @topics.each do |topic| %>
+    <div class="row">
+      <div class="profile-img">
+        <%= profile_img(User.find(topic.user_id)) %>
+      </div>
+      <%= link_to topic_path(topic) do %>
+        <h4><strong><%= topic.title %></strong></h4>
+      <% end %>
+      <p><%= topic.content %></p>
+      <p><%= image_tag(topic.picture.url) %></p>
+      <%= User.find(topic.user_id).name %>
+      <% if current_user.id == topic.user.id %>
+        <%= link_to "編集", edit_topic_path(topic.id), class: 'btn btn-default btn-sm btn-success' %>
+        <%= link_to "削除", topic_path(topic.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>
+      <% end %>
+    </div>
     <% end %>
   </div>
-  <% end %>
-</div>
 </div>
