@@ -11,6 +11,7 @@
       <h4><strong><%= topic.title %></strong></h4>
     <% end %>
     <p><%= topic.content %></p>
+    <p><%= image_tag(topic.picture.url) %></p>
     <%= User.find(topic.user_id).name %>
     <% if current_user.id == topic.user.id %>
       <%= link_to "編集", edit_topic_path(topic.id), class: 'btn btn-default btn-sm btn-success' %>
