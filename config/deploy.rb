@@ -4,7 +4,7 @@ lock '3.6.0'
 set :application, 'clonebook'
 
 # cloneするgitのレポジトリ（xxxxxxxx：ユーザ名、yyyyyyyy：アプリケーション名）
-set :repo_url, 'https://github.com/yasutaka-nttpc/clonebook'
+set :repo_url, 'https://github.com/yasutaka-nttpc/Clonebook'
 
 # deployするブランチ。デフォルトはmasterなのでなくても可。
 set :branch, ENV['BRANCH'] || 'master'

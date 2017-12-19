@@ -44,34 +44,35 @@ group :development, :test do
   gem 'spring'
 end
 
-group :development do
-  gem 'letter_opener_web'
-  gem 'dotenv-rails'
-end
-
-group :development, :test do
-  gem 'pry-rails'
-  gem 'better_errors'
-  gem 'capistrano', '3.6.0'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails'
-  gem 'capistrano-rbenv'
-  gem 'capistrano3-unicorn'
-end
-
 gem 'twitter-bootstrap-rails'
-
+gem 'jquery-turbolinks'
+gem 'rails_12factor', group: :production
 gem 'devise'
-
 gem 'faker'
-
+gem 'rails_admin'
+gem 'cancan'
+gem 'activeresource'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
-
-#image uploader
 gem 'carrierwave'
 gem 'mini_magick'
+
+group :development do
+  gem 'letter_opener_web'
+end
+
+gem 'therubyracer', platforms: :ruby
+
+group :development, :test do
+    gem 'pry-rails'
+    gem 'better_errors'
+    gem 'capistrano', '3.6.0'
+    gem 'capistrano-bundler'
+    gem 'capistrano-rails'
+    gem 'capistrano-rbenv'
+    gem 'capistrano3-unicorn'  
+  end
 
 gem 'pusher'
 
@@ -79,5 +80,3 @@ gem 'fog'
 
 gem 'dotenv-rails'
 gem 'unicorn'
-
-gem 'therubyracer', platforms: :ruby
