@@ -1,22 +1,28 @@
-100.times do |n|
+num = 10
+
+num.times do |n|
+  name  = Faker::Name.name
   email = Faker::Internet.email
   password = "password"
-  User.create!(email: email,
-               password: password,
-               password_confirmation: password,
-               name: "name#{n}"
-               )
+  uid = User.create_unique_string
+  user = User.create!(
+    name: name,
+    email: email,
+    password: password,
+    password_confirmation: password,
+    uid: uid
+  )
+  title = Faker::Lorem.sentence
+  topic_content = Faker::Lorem.sentence
+  topic = user.topics.build(title: title, content: topic_content)
+  topic.save!
+
 end
 
-n = 1
-while n <= 10
-  Faker::Config.locale = :ja
-  name = Faker::Name.name
-  sentence = Faker::Lorem.sentence
-  Topic.create(
-    title: name,
-    content: sentence,
-    user_id: n
-  )
-  n = n + 1
+
+(rand(100)+1).times do |i|
+  user = User.find( rand(num)+1 )
+  comment_content = Faker::Lorem.sentence
+  comment = user.comments.build(topic_id: rand(num)+1, content: comment_content)
+  comment.save
 end
