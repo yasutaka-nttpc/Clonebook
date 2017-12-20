@@ -62,7 +62,7 @@ group :development do
   gem 'letter_opener_web'
 end
 
-gem 'therubyracer', platforms: :ruby
+#gem 'therubyracer', platforms: :ruby
 
 group :development, :test do
     gem 'pry-rails'
