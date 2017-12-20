@@ -29,6 +29,8 @@ class MessagesController < ApplicationController
     @message = @conversation.messages.build(message_params)
     if @message.save
       redirect_to conversation_messages_path(@conversation)
+    else
+      redirect_to action: 'index'
     end
   end
 end
